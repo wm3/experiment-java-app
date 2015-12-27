@@ -1,0 +1,19 @@
+machine:
+  timezone: Asia/Tokyo
+  java:
+    version: oraclejdk8
+  services:
+    - docker
+
+dependencies:
+  post:
+    - docker info
+    - container-base/circleci-load.sh java8
+    - ./gradlew build
+    - cp build/libs/*.jar container/app.jar
+    - docker build -t experiment-java-app container
+
+deployment:
+  staging:
+    commands:
+      - docker images
