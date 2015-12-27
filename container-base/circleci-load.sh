@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+set -e
 
 NAME="$1"
 ARCHIVE="$HOME/docker/$NAME.tar"
