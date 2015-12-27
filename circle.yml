@@ -15,5 +15,6 @@ dependencies:
 
 deployment:
   staging:
+    branch: master
     commands:
       - docker images
